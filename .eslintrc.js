@@ -18,4 +18,9 @@ module.exports = {
     // CommonJSの"module.exports/require"を許容
     node: true,
   },
+
+  rules: {
+    // Prettier options
+    'prettier/prettier': ['error', { singleQuote: true, semi: false }],
+  },
 }
