@@ -5,6 +5,8 @@
 const math = require('./math')
 console.log(math.add(1, 2))
 console.log(math.substract(1, 2))
+console.log(math.__filename)
+console.log(math.__dirname)
 
 /**
  * JSONを'require()'するとJavaScriptの

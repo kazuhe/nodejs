@@ -5,4 +5,9 @@
 module.exports = {
   add: require('./add'),
   substract: require('./substract'),
+
+  // CommonJSは'__filename'と'__dirname'という
+  // 変数がモジュールスコープで割り当てられている
+  __filename,
+  __dirname,
 }
