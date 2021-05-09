@@ -54,7 +54,15 @@ function asyncParseJSONWithCache(json, callback) {
   const cached = cache[json]
   if (cached) {
     // キャッシュに値が存在する場合でも非同期的にコールバックを実行する
-    setTimeout(() => callback(cached.err, cached.result), 0)
+
+    // Node.js特有のAPIであるprocess.nextTick()は現在実行中の処理の
+    // 完了後すぐ（イベントループが次のフェーズに進む前に）実行される
+    process.nextTick(() => callback(cached.err, cached.result))
+
+    // ブラウザ環境でも動かすコードの場合はPromiseを使う
+    // ただし、Promiseを使ったコールバックは'microTaskQueue'に積まれる為
+    // 'nextTickQueue'に積まれるprocess.nextTick()よりも後に実行される
+    // Promise.resolve().then(() => callback(cached.err, cached.result))
     return
   }
   asyncParseJSON(json, (err, result) => {
