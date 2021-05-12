@@ -23,4 +23,9 @@ module.exports = {
     // Prettier options
     'prettier/prettier': ['error', { singleQuote: true, semi: false }],
   },
+
+  parserOptions: {
+    // async/await構文に対応する為
+    ecmaVersion: 2017,
+  },
 }
