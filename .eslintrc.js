@@ -1,6 +1,14 @@
 module.exports = {
   root: true,
 
+  env: {
+    es6: true,
+    browser: true,
+
+    // CommonJSの"module.exports/require"を許容
+    node: true,
+  },
+
   plugins: ['prettier'],
 
   extends: [
@@ -11,12 +19,8 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
 
-  env: {
-    es6: true,
-    browser: true,
-
-    // CommonJSの"module.exports/require"を許容
-    node: true,
+  parserOptions: {
+    ecmaVersion: 2021,
   },
 
   rules: {
