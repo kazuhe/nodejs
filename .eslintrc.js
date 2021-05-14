@@ -20,16 +20,12 @@ module.exports = {
   ],
 
   parserOptions: {
+    // ES2021以降の構文を有効にする
     ecmaVersion: 2021,
   },
 
   rules: {
     // Prettier options
     'prettier/prettier': ['error', { singleQuote: true, semi: false }],
-  },
-
-  parserOptions: {
-    // async/await構文に対応する為
-    ecmaVersion: 2017,
   },
 }
