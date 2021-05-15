@@ -60,3 +60,42 @@ console.log('Completed first call')
 // 1回目の結果 { message: 'Hello', to: 'World' }
 // 2回目の呼び出し
 // 2回目の結果 { message: 'Hello', to: 'World' }
+
+/**
+ * 数値で解決されるfulfilledなPromiseインスタンスの合計値を返す非同期関数
+ * rejectedなインスタンスはエラーを返さずスルーさせる
+ */
+const asyncSum = async (promise) => {
+  let total = 0
+  const arr = await Promise.allSettled(promise)
+  arr.forEach((element) => {
+    if (element.status === 'fulfilled') {
+      total += element.value
+    }
+  })
+  return total
+}
+
+asyncSum([
+  Promise.resolve(3),
+  Promise.resolve(2),
+  Promise.reject(new Error('Error')),
+]).then((result) => console.log('asyncSum result: ', result))
+
+/**
+ * 上記関数のPromise.all()版
+ */
+const asyncSum2 = async (promise) => {
+  let total = 0
+  const arr = await Promise.all(promise.map((v) => v.catch(() => 0)))
+  arr.forEach((element) => {
+    total += element
+  })
+  return total
+}
+
+asyncSum2([
+  Promise.resolve(3),
+  Promise.resolve(2),
+  Promise.reject(new Error('Error')),
+]).then((result) => console.log('asyncSum2 result: ', result))
