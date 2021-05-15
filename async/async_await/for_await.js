@@ -22,6 +22,21 @@ const asyncIterable = {
 
 ;(async () => {
   for await (const element of asyncIterable) {
-    console.log(element)
+    console.log('asyncIterable', element)
+  }
+})()
+
+// 上記の処理をasyncジェネレータで行う
+async function* asyncGenerator() {
+  let i = 0
+  while (i <= 3) {
+    await new Promise((resolve) => setTimeout(resolve), 1000)
+    yield i++
+  }
+}
+
+;(async () => {
+  for await (const element of asyncGenerator()) {
+    console.log('asyncGenerator()', element)
   }
 })()
