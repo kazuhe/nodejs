@@ -12,9 +12,10 @@ function createFizzBuzzEventEmitter(until) {
   return eventEmitter
 }
 
-// ※EventEmitterインスタンスが生成される関数内で
-// 同期的に発行（emit）されるイベントに対してリスナは呼ばれない
-// つまり、登録されていないリスナは発行することができない
+// ※EventEmitterインスタンスの生成処理の中で
+// 同期的にイベントを発行（emit）してはならない
+// つまり、登録（on）されていないリスナは発行することができない為
+// すべて非同期で発行する必要がある
 
 // async/await構文が使える様にイベント発行部分を別関数に切り離す
 async function _emitFizzBuzz(eventEmitter, until) {
