@@ -12,6 +12,7 @@ const eventAEmitter = new events.EventEmitter()
 
 // asyncイテラブルの生成
 // 内部的にイベントへのリスナを登録してasyncイテラブルを生成する
+// events.on()に登録されたリスナはfor await...ofを抜けると自動的にoff()される
 const eventAIterable = events.on(eventAEmitter, 'eventA')
 
 // リスナが1つ登録されていることを確認
