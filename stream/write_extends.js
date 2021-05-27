@@ -33,3 +33,5 @@ delayLogStream.write({ message: 'Hi', delay: 0 })
 delayLogStream.write({ message: 'Thank you', delay: 1000 })
 
 delayLogStream.write({ message: 'Bye', delay: 100 })
+
+module.exports = DelayLogStream

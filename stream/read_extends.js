@@ -67,3 +67,9 @@ helloReadableStream
 
 // ↑この例ではデータのサイズが小さかっため、
 // 一度の_read()の呼び出しで全データを流せたことがわかる
+
+module.exports = HelloReadableStream
+
+// 下記の様にdataイベントで読み込みストリーム扱う事も可能だが、
+// データを読み込むタイミングが制御しにくい為非推奨
+// readStream.on('data', (chunk) => console.log(chunk))

@@ -60,3 +60,5 @@ lineTransformStream.write('foo\nbar')
 lineTransformStream.write('baz')
 
 lineTransformStream.end()
+
+module.exports = LineTransformStream
