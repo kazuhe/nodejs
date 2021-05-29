@@ -17,3 +17,8 @@ new HelloReadableStream()
   .pipe(new LineTransformStream())
   .pipe(new DelayLogStream())
   .on('finish', () => console.log('完了'))
+
+// 原則、読み込みストリーム・書き込みストリームは完了時にそれぞれendイベント・finishイベントを発行するが
+// 何らかの理由で発行されないままストリームが終了することがある（たとえばhttpモジュールを使った送信リクエストを途中で辞めた場合）
+// そういった状況を考慮する必要がある場合にストリームの終了をハンドリングするのにstream.finished()が便利
+// stream.finished()に渡したコールバックは、end・finish・errorイベントなしでストリームが終了した場合にも呼ばれる
