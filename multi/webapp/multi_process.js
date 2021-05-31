@@ -29,5 +29,5 @@ for (let i = 0; i < cpuCount; i++) {
 // 逆にプロセス間のコンテキストスイッチによるコストが発生する
 
 // 負荷テスト
-// node ./multi/webapp/multi_pocess/
+// node ./multi/webapp/multi_process/
 // npx loadtest -c 100 -t 10 http://localhost:3000/30
