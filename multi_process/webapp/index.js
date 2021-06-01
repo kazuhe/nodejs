@@ -1,6 +1,8 @@
 /**
  * webアプリケーションのマルチプロセス化
  *
+ * Webアプリケーションそのものを並列に動かす場合に適している。
+ * アプリケーション内部でCPU負荷の高い処理を並列化する場合はマルチスレッドが適している。
  * ./multi_process.jsのclusterモジュールによって以下の処理をマルチプロセスで実行させる
  */
 
@@ -26,5 +28,5 @@ http
   .listen(3000) // 3000ポートでリクエストを待機
 
 // 負荷テスト
-// node ./multi/webapp/
+// node ./multi_process/webapp/
 // npx loadtest -c 100 -t 10 http://localhost:3000/30
