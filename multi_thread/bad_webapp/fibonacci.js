@@ -2,7 +2,7 @@
 
 'use stcit'
 
-const fibonacci = require('../multi_process/webapp/fibonacci')
+const fibonacci = require('../../multi_process/webapp/fibonacci')
 const { workerData, parentPort } = require('worker_threads')
 
 // フィボナッチ数の計算結果をメインスレッドに送信

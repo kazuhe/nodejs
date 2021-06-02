@@ -25,7 +25,7 @@ http
 // Workerインスタンスのmessageイベントで取得可能
 
 // 起動確認
-// $ node ./multi_thread/webapp
+// $ node ./multi_thread/bad_webapp
 
 // フィボナッチ数の計算をwebアプリケーションを動かしているのとは別のスレッドで行うため
 // 計算の完了を待たずに次のリクエストを処理できる
