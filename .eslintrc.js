@@ -9,11 +9,13 @@ module.exports = {
     node: true,
   },
 
-  plugins: ['prettier'],
+  plugins: ['react', 'prettier'],
 
   extends: [
     // ESLintのJavaScriptルールセットを適用
     'eslint:recommended',
+    
+    'plugin:react/recommended',
 
     // Prettierのお勧めルールセットを適用
     'plugin:prettier/recommended',
@@ -22,9 +24,14 @@ module.exports = {
   parserOptions: {
     // ES2021以降の構文を有効にする
     ecmaVersion: 2021,
+    sourceType: 'module',
   },
 
   rules: {
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+
     // Prettier options
     'prettier/prettier': ['error', { singleQuote: true, semi: false }],
   },
